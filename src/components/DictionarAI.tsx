@@ -2,11 +2,9 @@
 
 import { Configuration, OpenAIApi } from 'openai';
 import { useState } from 'react';
-import { json } from 'stream/consumers';
 
-const openAIKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY as string;
-const openAIOrganizationKey = process.env
-  .NEXT_PUBLIC_OPENAI_ORGANIZATION_KEY as string;
+const openAIKey = process.env.OPENAI_API_KEY as string;
+const openAIOrganizationKey = process.env.OPENAI_ORGANIZATION_KEY as string;
 
 export default function DictionarAI() {
   const [userPrompt, setUserPrompt] = useState('');
@@ -14,7 +12,7 @@ export default function DictionarAI() {
 
   const promptRequest = async () => {
     try {
-      const prompt = `You are an expert giving dictionary definitions. You'll get the next word or a phrase: ${userPrompt}, and you'll respond as follows: Do not include any explanations, only provide a RFC8259 compliant JSON response following this format without deviation. {"correction": "The possible correction of the word or phrase", "examples": "An array of examples with the correction of the word or phrase", "synonyms": "An array of synonyms"}`;
+      const prompt = `You are an expert giving dictionary definitions. You'll get the next word: ${userPrompt}, and you'll respond as follows: Do not include any explanations, only provide a RFC8259 compliant JSON response following this format without deviation. {"correction": "The possible correction of the word or phrase", "definition": "The definition of the word corrected", "examples": "An array of examples with the correction of the word", "synonyms": "An array of synonyms"}`;
       const configuration = new Configuration({
         apiKey: openAIKey,
         organization: openAIOrganizationKey,
@@ -24,17 +22,14 @@ export default function DictionarAI() {
         prompt: prompt,
         model: 'text-davinci-003',
         temperature: 0,
-        max_tokens: 2000,
+        max_tokens: 1000,
         frequency_penalty: 0.5,
         presence_penalty: 0.5,
       });
-
       const res = response.data.choices[0].text;
-      console.log(res);
 
       if (res) {
         const resJSON = JSON.parse(res);
-        console.log(resJSON);
 
         setOpenAIResponse(resJSON);
       } else console.error('Error!');
@@ -63,6 +58,9 @@ export default function DictionarAI() {
           </p>
           <p>
             <strong>Correction(s)</strong>: {openAIResponse?.correction}
+          </p>
+          <p>
+            <strong>Definition</strong>: {openAIResponse?.definition}
           </p>
           <strong>Examples</strong>
           <ul className='pl-1'>
