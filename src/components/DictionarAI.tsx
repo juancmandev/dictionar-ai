@@ -56,7 +56,7 @@ export default function DictionarAI() {
       userPrompt: '',
     },
     validationSchema: Yup.object({
-      userPrompt: Yup.string().required('Required'),
+      userPrompt: Yup.string().required('A word or phrase is required'),
     }),
     onSubmit: ({ userPrompt }) => {
       promptRequest(userPrompt);
@@ -64,16 +64,27 @@ export default function DictionarAI() {
   });
 
   return (
-    <>
-      <H1>DictionarAI</H1>
-      <form className='max-w-[300px]' onSubmit={formik.handleSubmit}>
+    <div className='p-5'>
+      <span className='inline-flex gap-2 mb-4'>
+        <H1>DictionarAI</H1>
+        <span className='self-end mb-1'>Ver 0.1</span>
+      </span>
+      <form
+        className='max-w-[300px] flex flex-col gap-2'
+        onSubmit={formik.handleSubmit}>
         <Textarea
           id='userPrompt'
           value={formik.values.userPrompt}
           onChange={formik.handleChange}
           onError={formik.errors.userPrompt}
+          onBlur={formik.handleBlur}
+          onTouched={formik.touched.userPrompt}
+          placeholder='Enter a word or phrase'
         />
-        <PrimaryButton type='submit' disabled={submitting}>
+        <PrimaryButton
+          className='max-w-max'
+          type='submit'
+          disabled={submitting}>
           {submitting ? 'Submitting...' : 'Submit'}
         </PrimaryButton>
       </form>
@@ -106,6 +117,6 @@ export default function DictionarAI() {
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }
