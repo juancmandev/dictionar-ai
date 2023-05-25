@@ -31,7 +31,7 @@ export const metadata = {
         'Consult words or phrases, get corrections, examples and more!',
       creator: '@juancmandev',
       images: {
-        url: `https/https://dictionar-ai.vercel.app/dictionar-ai-banner.png`,
+        url: `https://dictionar-ai.vercel.app/dictionar-ai-banner.png`,
         alt: 'DictionarAI banner',
       },
     },
