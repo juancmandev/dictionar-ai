@@ -52,7 +52,7 @@ export default function FeedbackBox() {
         className={`${
           showForm ? 'fixed' : 'hidden'
         } top-[50%] left-[65%] shadow-2xl rounded-sm p-6`}>
-        <h4 className='font-bold text-lg mb-2'>
+        <h4 className='font-medium text-lg mb-2'>
           I want to listen your opinion
         </h4>
         <form
@@ -86,7 +86,7 @@ export default function FeedbackBox() {
             onBlur={formik.handleBlur}
             onTouched={formik.touched.feedback}
             onError={formik.errors.feedback}
-            placeholder='What would you like to be added, changed...?'
+            placeholder='What would you like to be added, or changed...?'
           />
           <footer className='flex justify-between'>
             <SecondaryButton
@@ -104,7 +104,7 @@ export default function FeedbackBox() {
         <button
           onClick={() => setShowForm((prev) => !prev)}
           type='button'
-          className='p-4 bg-blue-500 rounded-full'>
+          className='p-4 bg-blue-500 rounded-full shadow-2xl hover:bg-blue-400'>
           <FeedbackIcon />
         </button>
       )}
