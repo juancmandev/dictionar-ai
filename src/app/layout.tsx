@@ -1,3 +1,4 @@
+import FeedbackBox from '@/components/FeedbackBox';
 import '@/styles/globals.css';
 import { Roboto } from 'next/font/google';
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={roboto.className}>
         <main>{children}</main>
+        <FeedbackBox />
       </body>
     </html>
   );
