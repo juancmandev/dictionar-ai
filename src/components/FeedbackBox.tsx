@@ -47,11 +47,11 @@ export default function FeedbackBox() {
   });
 
   return (
-    <div className='fixed top-[87.5%] left-[87.5%]'>
+    <div className='fixed bottom-5 right-5 z-10'>
       <div
         className={`${
           showForm ? 'fixed' : 'hidden'
-        } top-[40%] left-[67.5%] shadow-2xl rounded-sm p-6`}>
+        } bottom-5 right-5 shadow-2xl rounded-sm p-6 z-10 bg-white`}>
         <h4 className='font-medium text-lg mb-2'>
           I want to listen your opinion
         </h4>
@@ -113,7 +113,7 @@ export default function FeedbackBox() {
         <button
           onClick={() => setShowForm((prev) => !prev)}
           type='button'
-          className='transition-colors p-4 bg-blue-500 rounded-full shadow-2xl hover:bg-blue-400 active:bg-blue-600'>
+          className='z-10 transition-colors p-4 bg-blue-500 rounded-full shadow-2xl hover:bg-blue-400 active:bg-blue-600'>
           <FeedbackIcon />
         </button>
       )}
