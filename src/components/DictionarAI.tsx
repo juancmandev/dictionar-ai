@@ -64,11 +64,11 @@ export default function DictionarAI() {
   });
 
   return (
-    <div className='p-5'>
-      <span className='inline-flex gap-2 mb-4'>
+    <div className='p-2 lg:p-5'>
+      <div className='mb-4'>
         <H1>DictionarAI</H1>
         <span className='self-end mb-1'>Ver 0.1</span>
-      </span>
+      </div>
       <form
         className='max-w-[300px] flex flex-col gap-2'
         onSubmit={formik.handleSubmit}>
