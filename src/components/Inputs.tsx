@@ -33,11 +33,13 @@ export const Input = ({
 }: InputProps) => (
   <div>
     <div
-      className={`flex gap-1 border-2 border-gray-300 rounded-sm p-2 ${
-        onTouched && onError ? 'border-red-400' : 'border-gray-300'
+      className={`transition-colors pointer-events-none flex gap-1 border-2 border-gray-300 hover:border-blue-300 focus-within:!border-blue-500 rounded-sm p-2 ${
+        onTouched &&
+        onError &&
+        '!border-red-400 focus-within:!border-red-400 hover:!border-red-400'
       }`}>
       <input
-        className='w-full focus:outline-none'
+        className='pointer-events-auto w-full focus:outline-none'
         id={id}
         type={type}
         value={value}
@@ -47,7 +49,7 @@ export const Input = ({
       />
       {iconChildren}
     </div>
-    <span className='text-red-400 empty:before:inline-block empty:before:content-[""]'>
+    <span className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
       {onTouched && onError && onError}
     </span>
   </div>
@@ -64,11 +66,13 @@ export const Textarea = ({
 }: TextareaProps) => (
   <div>
     <div
-      className={`flex gap-1 border-2 border-gray-300 rounded-sm p-2 ${
-        onTouched && onError ? 'border-red-400' : 'border-gray-300'
+      className={`transition-colors pointer-events-none border-2 border-gray-300 hover:border-blue-300 focus-within:!border-blue-500 rounded-sm p-2 ${
+        onTouched &&
+        onError &&
+        '!border-red-400 focus-within:!border-red-400 hover:!border-red-400'
       }`}>
       <textarea
-        className='w-full focus:outline-none resize-none'
+        className='pointer-events-auto w-full focus:outline-none resize-none'
         id={id}
         value={value}
         onBlur={onBlur}
@@ -76,7 +80,7 @@ export const Textarea = ({
         placeholder={placeholder}
       />
     </div>
-    <span className='text-red-400 empty:before:inline-block empty:before:content-[""]'>
+    <span className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
       {onTouched && onError && onError}
     </span>
   </div>

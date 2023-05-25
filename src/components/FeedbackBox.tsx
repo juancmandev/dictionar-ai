@@ -28,7 +28,7 @@ export default function FeedbackBox() {
       email: Yup.string()
         .email('Invalid email address')
         .required('Email required'),
-      feedback: Yup.string().required('Feedback is required'),
+      feedback: Yup.string().required('Feedback required'),
     }),
     onSubmit: async (values) => {
       setSubmitting(true);
@@ -51,7 +51,7 @@ export default function FeedbackBox() {
       <div
         className={`${
           showForm ? 'fixed' : 'hidden'
-        } top-[50%] left-[65%] shadow-2xl rounded-sm p-6`}>
+        } top-[40%] left-[67.5%] shadow-2xl rounded-sm p-6`}>
         <h4 className='font-medium text-lg mb-2'>
           I want to listen your opinion
         </h4>
@@ -59,35 +59,44 @@ export default function FeedbackBox() {
           onSubmit={formik.handleSubmit}
           onReset={formik.handleReset}
           className='flex flex-col gap-1'>
-          <Input
-            id='name'
-            type='text'
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            onTouched={formik.touched.name}
-            onError={formik.errors.name}
-            placeholder='Your name'
-          />
-          <Input
-            id='email'
-            type='email'
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            onTouched={formik.touched.email}
-            onError={formik.errors.email}
-            placeholder='Your email'
-          />
-          <Textarea
-            id='feedback'
-            value={formik.values.feedback}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            onTouched={formik.touched.feedback}
-            onError={formik.errors.feedback}
-            placeholder='What would you like to be added, or changed...?'
-          />
+          <section>
+            <label htmlFor='name'>Name</label>
+            <Input
+              id='name'
+              type='text'
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              onTouched={formik.touched.name}
+              onError={formik.errors.name}
+              placeholder='John Doe'
+            />
+          </section>
+          <section>
+            <label htmlFor='email'>Email</label>
+            <Input
+              id='email'
+              type='email'
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              onTouched={formik.touched.email}
+              onError={formik.errors.email}
+              placeholder='example@email.com'
+            />
+          </section>
+          <section>
+            <label htmlFor='feedback'>Feedback</label>
+            <Textarea
+              id='feedback'
+              value={formik.values.feedback}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              onTouched={formik.touched.feedback}
+              onError={formik.errors.feedback}
+              placeholder='What would you like to be added, or changed...?'
+            />
+          </section>
           <footer className='flex justify-between'>
             <SecondaryButton
               type='reset'
@@ -95,7 +104,7 @@ export default function FeedbackBox() {
               Cancel
             </SecondaryButton>
             <PrimaryButton disabled={submitting} type='submit'>
-              Submit
+              {submitting ? 'Submitting...' : 'Submit'}
             </PrimaryButton>
           </footer>
         </form>
@@ -104,7 +113,7 @@ export default function FeedbackBox() {
         <button
           onClick={() => setShowForm((prev) => !prev)}
           type='button'
-          className='p-4 bg-blue-500 rounded-full shadow-2xl hover:bg-blue-400'>
+          className='transition-colors p-4 bg-blue-500 rounded-full shadow-2xl hover:bg-blue-400 active:bg-blue-600'>
           <FeedbackIcon />
         </button>
       )}

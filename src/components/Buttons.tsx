@@ -17,7 +17,7 @@ export const PrimaryButton = ({
     disabled={disabled}
     onClick={onClick}
     type={type}
-    className={`p-2 text-white font-bold bg-blue-500 rounded-sm hover:bg-blue-400 transition-colors disabled:opacity-75 ${className}`}>
+    className={`p-2 text-white font-bold bg-blue-500 rounded-sm hover:bg-blue-400 active:bg-blue-600 transition-colors disabled:opacity-75 ${className}`}>
     {children}
   </button>
 );
@@ -33,7 +33,7 @@ export const SecondaryButton = ({
     disabled={disabled}
     onClick={onClick}
     type={type}
-    className={`p-2 bg-transparent border-2 border-blue-500 text-blue-500 font-bold hover:border-blue-400 hover:text-blue-400 rounded-sm transition-colors disabled:opacity-75 ${className}`}>
+    className={`p-2 bg-transparent border-2 border-blue-500 text-blue-500 font-bold hover:border-blue-400 hover:text-blue-400 active:border-blue-600 active:text-blue-600 rounded-sm transition-colors disabled:opacity-75 ${className}`}>
     {children}
   </button>
 );
