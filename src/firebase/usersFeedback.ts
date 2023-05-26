@@ -3,13 +3,13 @@ import { db } from './config';
 
 const PROJECT_ID = 'dictionar-ai';
 
-interface data {
+interface Data {
   name: string;
   email: string;
   feedback: string;
 }
 
-export const saveUserFeedback = (data: data) =>
+export const saveUserFeedback = (data: Data) =>
   new Promise(async (resolve, reject) => {
     try {
       const userFeedbackRef = await addDoc(collection(db, 'usersFeedback'), {
