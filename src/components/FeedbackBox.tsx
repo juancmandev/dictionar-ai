@@ -59,44 +59,38 @@ export default function FeedbackBox() {
           onSubmit={formik.handleSubmit}
           onReset={formik.handleReset}
           className='flex flex-col gap-1'>
-          <section>
-            <label htmlFor='name'>Name</label>
-            <Input
-              id='name'
-              type='text'
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              onTouched={formik.touched.name}
-              onError={formik.errors.name}
-              placeholder='John Doe'
-            />
-          </section>
-          <section>
-            <label htmlFor='email'>Email</label>
-            <Input
-              id='email'
-              type='email'
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              onTouched={formik.touched.email}
-              onError={formik.errors.email}
-              placeholder='example@email.com'
-            />
-          </section>
-          <section>
-            <label htmlFor='feedback'>Feedback</label>
-            <Textarea
-              id='feedback'
-              value={formik.values.feedback}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              onTouched={formik.touched.feedback}
-              onError={formik.errors.feedback}
-              placeholder='What would you like to be added, or changed...?'
-            />
-          </section>
+          <Input
+            id='name'
+            label='Name'
+            type='text'
+            value={formik.values.name}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            onTouched={formik.touched.name}
+            onError={formik.errors.name}
+            placeholder='John Doe'
+          />
+          <Input
+            id='email'
+            label='Email'
+            type='email'
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            onTouched={formik.touched.email}
+            onError={formik.errors.email}
+            placeholder='example@email.com'
+          />
+          <Textarea
+            id='feedback'
+            label='Feedback'
+            value={formik.values.feedback}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            onTouched={formik.touched.feedback}
+            onError={formik.errors.feedback}
+            placeholder='What would you like to be added, or changed...?'
+          />
           <footer className='flex justify-between'>
             <SecondaryButton
               type='reset'

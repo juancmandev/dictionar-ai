@@ -1,5 +1,6 @@
 interface InputProps {
   id: string;
+  label: string;
   type: 'text' | 'password' | 'email';
   onError: string | undefined;
   onTouched: boolean | undefined;
@@ -12,6 +13,7 @@ interface InputProps {
 
 interface TextareaProps {
   id: string;
+  label: string;
   onError?: string;
   onTouched?: boolean;
   placeholder?: string;
@@ -22,6 +24,7 @@ interface TextareaProps {
 
 export const Input = ({
   id,
+  label,
   type,
   onError,
   onTouched,
@@ -31,7 +34,12 @@ export const Input = ({
   onChange,
   iconChildren,
 }: InputProps) => (
-  <div>
+  <section>
+    <label
+      htmlFor={id}
+      className={`w-full ${onError && onTouched && 'text-red-400'}`}>
+      {label}
+    </label>
     <div
       className={`transition-colors pointer-events-none flex gap-1 border-2 border-gray-300 hover:border-blue-300 focus-within:!border-blue-500 rounded-sm p-2 ${
         onTouched &&
@@ -49,14 +57,15 @@ export const Input = ({
       />
       {iconChildren}
     </div>
-    <span className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
+    <p className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
       {onTouched && onError && onError}
-    </span>
-  </div>
+    </p>
+  </section>
 );
 
 export const Textarea = ({
   id,
+  label,
   onError,
   onTouched,
   placeholder,
@@ -64,7 +73,10 @@ export const Textarea = ({
   onBlur,
   onChange,
 }: TextareaProps) => (
-  <div>
+  <section>
+    <label className={`${onError && onTouched && 'text-red-400'}`} htmlFor={id}>
+      {label}
+    </label>
     <div
       className={`transition-colors pointer-events-none border-2 border-gray-300 hover:border-blue-300 focus-within:!border-blue-500 rounded-sm p-2 ${
         onTouched &&
@@ -80,8 +92,8 @@ export const Textarea = ({
         placeholder={placeholder}
       />
     </div>
-    <span className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
+    <p className='text-red-400 text-sm empty:before:inline-block empty:before:content-[""]'>
       {onTouched && onError && onError}
-    </span>
-  </div>
+    </p>
+  </section>
 );

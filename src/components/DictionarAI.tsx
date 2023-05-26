@@ -74,6 +74,7 @@ export default function DictionarAI() {
         onSubmit={formik.handleSubmit}>
         <Textarea
           id='userPrompt'
+          label='Word or Phrase'
           value={formik.values.userPrompt}
           onChange={formik.handleChange}
           onError={formik.errors.userPrompt}
