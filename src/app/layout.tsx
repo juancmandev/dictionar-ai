@@ -11,7 +11,7 @@ export const metadata = {
   title: 'DictionarAI',
   description: 'Consult words or phrases, get corrections, examples and more!',
   openGraph: {
-    type: 'website',
+    type: 'article',
     locale: 'en',
     title: 'DictionarAI',
     description:
