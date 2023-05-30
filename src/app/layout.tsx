@@ -18,9 +18,9 @@ export const metadata = {
       'Consult words or phrases, get corrections, examples and more!',
     images: [
       {
-        url: '/dictionar-ai-banner.png',
         width: 1200,
         height: 675,
+        url: '/dictionar-ai-banner.png',
         alt: 'DictionarAI banner',
       },
     ],
@@ -31,7 +31,9 @@ export const metadata = {
         'Consult words or phrases, get corrections, examples and more!',
       creator: '@juancmandev',
       images: {
-        url: `https://dictionar-ai.vercel.app/dictionar-ai-banner.png`,
+        width: 1200,
+        height: 675,
+        url: '/dictionar-ai-banner.png',
         alt: 'DictionarAI banner',
       },
     },
