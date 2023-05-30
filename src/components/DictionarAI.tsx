@@ -92,7 +92,7 @@ export default function DictionarAI() {
       {openAIResponse && (
         <div>
           <p>
-            <strong>Word/Phrase</strong>: {openAIResponse?.word}
+            <strong>Word or phrase</strong>: {openAIResponse?.word}
           </p>
           <p>
             <strong>Correction</strong>: {openAIResponse?.correction}
