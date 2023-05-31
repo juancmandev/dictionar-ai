@@ -14,6 +14,8 @@ const openAIOrganizationKey = process.env.OPENAI_ORGANIZATION_KEY as string;
 
 const dictionary: any = {
   ['en']: {
+    english: 'English',
+    spanish: 'Spanish',
     language: 'Language',
     word: 'Word or phrase',
     enterWod: 'Enter a word or phrase',
@@ -24,8 +26,11 @@ const dictionary: any = {
     synonyms: 'Synonyms',
     generate: 'Generate',
     generating: 'Generating...',
+    copiedToClipboard: 'Copied to clipboard!',
   },
   ['es']: {
+    english: 'Inglés',
+    spanish: 'Español',
     language: 'Idioma',
     word: 'Palabra o frase',
     enterWod: 'Ingresa una palabra o frase',
@@ -36,6 +41,7 @@ const dictionary: any = {
     synonyms: 'Sinónimos',
     generate: 'Generar',
     generating: 'Generando...',
+    copiedToClipboard: '¡Copiado al portapapeles!',
   },
 };
 
@@ -115,7 +121,7 @@ export default function DictionarAI() {
     navigator.clipboard.writeText(text);
 
     setTimeout(() => {
-      alert(`"${text}" \n\n Copied to clipboard!`);
+      alert(`"${text}" \n\n ${dictionary[language].copiedToClipboard}`);
     }, 100);
 
     setTimeout(() => {
@@ -142,8 +148,8 @@ export default function DictionarAI() {
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
             className='p-2 border-2 border-gray-300 rounded-sm hover:border-blue-300 focus-within:border-blue-500 cursor-pointer'>
-            <option value='en'>English</option>
-            <option value='es'>Spanish</option>
+            <option value='en'>{dictionary[language].english}</option>
+            <option value='es'>{dictionary[language].spanish}</option>
           </select>
         </section>
         <Textarea
